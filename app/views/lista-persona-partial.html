@@ -1,0 +1,28 @@
+<!-- templates/lista-persona-partial -->
+<div class="panel panel-default">
+    <div class="panel-heading">Listado de personas</div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in data.list">
+                    <td>
+                        {{item.nombre}}
+                    </td>
+                    <td>
+                        {{item.apellido}}
+                    </td>
+                    <td>@ {{item.username }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Fin templates/lista-persona-partial -->
