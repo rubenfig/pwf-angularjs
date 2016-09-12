@@ -32,7 +32,10 @@ app.controller('listaPersonaCtrl', ['$scope', 'personaService', 'Shared',
          * @constructor
          */
         (function initialize() {
-            getData();
+            //se realiza el get solo si no hay datos
+            if ($scope.data.list.length == 0) {
+                getData();
+            }
         })();
     }
 ]);
