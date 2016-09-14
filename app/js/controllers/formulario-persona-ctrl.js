@@ -17,7 +17,14 @@ app.controller('formularioPersonaCtrl', ['$scope', 'Shared',
          * @function
          */
         $scope.agregar = function (params) {
+            $scope.fecha = new Date();
+            $scope.data.idMax++;
+            $scope.persona.id=$scope.data.idMax;
+            $scope.persona.fechaCreacion = $scope.fecha.getDate() + '-'
+            + ($scope.fecha.getMonth()+1) + '-' + $scope.fecha.getFullYear();
+            console.log($scope.persona);
             $scope.data.list.push(angular.copy($scope.persona));
+            $scope.persona= {};
         }
     }
  ]);

@@ -1,25 +1,77 @@
 <!-- templates/lista-persona-partial -->
+<form>
+    <div class="form-group">
+        <select ng-model="busqueda">
+            <option value="nombre">Nombre</option>
+            <option value="apellido">Apellido</option>
+            <option value="username">Alias</option>
+            <option value="email">E-mail</option>
+            <option value="telefono">Telefono</option>
+        </select>
+        <div class="input-group" ng-show="busqueda==='nombre'">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscar.nombre">
+        </div>
+        <div class="input-group" ng-show="busqueda==='apellido'">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscar.apellido">
+        </div>
+        <div class="input-group" ng-show="busqueda==='username'">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscar.username">
+        </div>
+        <div class="input-group" ng-show="busqueda==='email'">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscar.search">
+        </div>
+        <div class="input-group" ng-show="busqueda==='telefono'">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscar.telefono">
+        </div>
+        <div class="input-group" ng-show="busqueda==='direccion'">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscar.direccion">
+        </div>
+    </div>
+</form>
+<div ng-show="selectedPersona!=undefined">
+    <button>Editar</button>
+    <button ng-click="borrar()">Borrar</button>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading">Listado de personas</div>
     <div class="panel-body">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Alias</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>E-mail</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in data.list">
-                    <td>
-                        {{item.nombre}}
+                <tr ng-class="{active:$index==selectedPersona}" data-ng-click="rowHighlited($index)"
+                    ng-repeat="item in data.list|orderBy:id|filter:buscar">
+                    <td>{{item.id }}
                     </td>
-                    <td>
-                        {{item.apellido}}
+                    <td>{{item.nombre}}
                     </td>
-                    <td>@ {{item.username }}
+                    <td>{{item.apellido}}
                     </td>
+                    <td>@{{item.username }}
+                    </td>
+                    <td>{{item.direccion }}
+                    </td>
+                    <td>{{item.telefono }}
+                    </td>
+                    <td>{{item.email }}
+                    </td>
+
+
                 </tr>
             </tbody>
         </table>

@@ -1,11 +1,20 @@
 [
-    {
+    {   "id": 1,
         "nombre": "Juan",
         "apellido": "Perez",
-        "username": "juan.perez"
+        "username": "juan.perez",
+        "telefono": "123455",
+        "email": "asd@gmail.com",
+        "direccion": "Azara",
+        "fechaCreacion": "02-09-2013"
     }, {
+        "id":2,
         "nombre": "Jose",
         "apellido": "Pueblo",
-        "username": "jose.pueblo"
+        "username": "jose.pueblo",
+        "telefono": "123455",
+        "email": "asd@gmail.com",
+        "direccion": "Azara",
+        "fechaCreacion": "02-09-2013"
     }
 ]
