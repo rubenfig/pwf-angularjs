@@ -44,5 +44,9 @@ app.factory('datosCompartidos', ['$http', function($http) {
         return $http.post(urlBase, item);
     };
 
+    datosCompartidos.getContact = function(id) {
+        return $http.get(urlBase + "/" + id);
+    };
+
     return datosCompartidos;
 }]);

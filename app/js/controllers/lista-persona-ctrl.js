@@ -32,4 +32,14 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
             });
         }
 
-    }]);
+        $scope.getContact = function (contact) {
+            datosCompartidos.getContact(contact.id)
+                .then(function (response) {
+                    $scope.persona = angular.copy(response.data);
+                    $rootScope.persona = $scope.persona;
+                    window.open("#agenda/"+contact.id+"/ver", '_self',false);
+                }, function (error) {
+                    window.alert("Imposible obtener el contacto.");
+                });
+        };
+}]);

@@ -12,7 +12,11 @@ app.service('personaService', ['$http', function ($http) {
 
     this.newContact = function (item) {
         return $http.post(urlBase, item);
-    }
+    };
+
+    this.getContact = function (id) {
+        return $http.get(urlBase+ "/"+ id);
+    };
 
 }]);
 
