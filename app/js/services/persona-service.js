@@ -4,16 +4,15 @@
  * Abarca las operaciones que pueden ser realizads sobre el recurso Persona.
  */
 app.service('personaService', ['$http', function ($http) {
-    return {
-        /**
-         * Realiza un get para obtener el json correspondeiente a la visualización
-         * de anteproyecto.
-         * @function
-         */
-        obtener: function (params) {
-            return $http.get('data/personas.json', {
-                params: params
-            });
-        }
+    var urlBase = 'http://localhost:1337/163.172.218.124/pwf/rest/agenda';
+
+    this.getContacts = function () {
+        return $http.get(urlBase);
+    };
+
+    this.newContact = function (item) {
+        return $http.post(urlBase, item);
     }
+
 }]);
+
