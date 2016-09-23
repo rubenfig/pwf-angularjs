@@ -9,7 +9,7 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
          * @type Array
          * @field
          */
-        $scope.data = {};
+        $scope.data = datosCompartidos;
         $scope.data.lista = [];
         $scope.persona = $rootScope.persona;
         $scope.buscar = "";

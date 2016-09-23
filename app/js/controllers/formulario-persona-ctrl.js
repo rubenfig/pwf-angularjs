@@ -30,7 +30,6 @@ app.controller('formularioPersonaCtrl', ['$scope', 'personaService', 'datosCompa
             datosCompartidos.newContact(contact)
                 .then(function (response) {
                     getContacts();
-                    //$scope.reload();
                     window.alert("¡Contacto guardado!");
                 }, function(error) {
                     window.alert("¡No se pudo guardar el contacto!");
