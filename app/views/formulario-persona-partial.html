@@ -1,44 +1,35 @@
 <div class="panel panel-default" ng-controller="formularioPersonaCtrl">
     <div class="panel-body">
-        <section class="form">
+        <form name="form" id="form">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
-                <input name="nombre" id="nombre" class="form-control" ng-model="persona.nombre">
-                <span class="help-block">Nombre de la nueva persona.</span>
+                <input name="nombre" id="nombre" class="form-control" ng-model="persona.nombre" type="text" maxlength="25" required placeholder="Nombre de la nueva persona.">
             </div>
             <div class="form-group">
                 <label for="nombre">Apellido</label>
-                <input name="apellido" id="apellido" class="form-control" ng-model="persona.apellido">
-                <span class="help-block">Apellido de la nueva persona.</span>
+                <input name="apellido" id="apellido" class="form-control" ng-model="persona.apellido" type="text" required maxlength="30" placeholder="Apellido de la nueva persona.">
             </div>
             <div class="form-group">
                 <label for="nombre">Alias</label>
-                <div class="input-group">
-                    <div class="input-group-addon">@</div>
-                    <input type="text" class="form-control" name="username" id="username" ng-model="persona.alias">
-                </div>
-                <span class="help-block">Username de la persona sin el @ inicial.</span>
+                <input type="text" class="form-control" name="alias" type="text" id="alias" ng-model="persona.alias" placeholder="Alias de la nueva persona" required>
             </div>
             <div class="form-group">
                 <label for="nombre">Dirección</label>
-                <input name="direccion" id="direccion" class="form-control" ng-model="persona.direccion">
-                <span class="help-block">Dirección de la nueva persona.</span>
+                <input name="direccion" id="direccion" type="text" class="form-control" ng-model="persona.direccion" placeholder="Dirección de la nueva persona." required>
             </div>
             <div class="form-group">
                 <label for="nombre">Teléfono</label>
-                <input name="telefono" id="telefono" type="number" class="form-control" ng-model="persona.telefono">
-                <span class="help-block">Teléfono de la nueva persona.</span>
+                <input name="telefono" id="telefono" type="number" class="form-control" ng-model="persona.telefono" placeholder="Teléfono de la nueva persona." required>
             </div>
             <div class="form-group">
                 <label for="nombre">E-mail</label>
-                <input name="email" id="email" type="email" class="form-control" ng-model="persona.email">
-                <span class="help-block">E-mail de la nueva persona.</span>
+                <input name="email" id="email" type="email" class="form-control" ng-model="persona.email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="E-mail de la nueva persona." required>
             </div>
-        </section>
-    </div>
-    <div class="panel-footer">
-        <a class="btn btn-default" ng-click="agregar()" role="button">
-            <i class="glyphicon glyphicon-floppy-disk"></i> &nbsp;Guardar
-        </a>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-default" ng-click="guardar()" >
+                    <i class="glyphicon glyphicon-floppy-disk"></i> &nbsp;Guardar
+                </button>
+            </div>
+        </form>
     </div>
 </div>

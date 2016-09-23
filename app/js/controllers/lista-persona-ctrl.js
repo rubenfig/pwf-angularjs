@@ -12,6 +12,7 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
         $scope.data = {};
         $scope.data.lista = [];
         $scope.persona = $rootScope.persona;
+        $scope.buscar = "";
 
         /**
          * Constructor / Entrypoint

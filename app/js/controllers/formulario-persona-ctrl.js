@@ -25,44 +25,18 @@ app.controller('formularioPersonaCtrl', ['$scope', 'personaService', 'datosCompa
          * @function
          */
 
-        $scope.agregar = function () {
+        $scope.guardar = function () {
             var contact = angular.copy($scope.persona);
-            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            datosCompartidos.newContact(contact)
+                .then(function (response) {
+                    getContacts();
+                    //$scope.reload();
+                    window.alert("¡Contacto guardado!");
+                }, function(error) {
+                    window.alert("¡No se pudo guardar el contacto!");
+                });
+            window.open("#personas/",'_self',false);
 
-            if ($scope.persona.nombre == undefined){
-                alert('¡Campo "Nombre" debe ser no nulo!');
-                return false;
-            }
-            else if ($scope.persona.apellido == undefined){
-                alert('¡Campo "Apellido" debe ser no nulo!');
-                return false;
-            }
-            else if ($scope.persona.alias == undefined){
-                alert('¡Campo "Alias" debe ser no nulo!');
-                return false;
-            }
-            else if ($scope.persona.telefono == undefined){
-                alert('¡Campo "Teléfono" debe ser no nulo!');
-                return false;
-            }
-            else if ($scope.persona.direccion == undefined){
-                alert('¡Campo "Dirección" debe ser no nulo!');
-                return false;
-            }
-            else if (reg.test($scope.persona.email) == false)
-            {
-                alert('¡Campo "Email" inválido!');
-                return false;
-            } else {
-                datosCompartidos.newContact(contact)
-                    .then(function (response) {
-                        getContacts();
-                        window.alert("¡Contacto guardado!");
-                    }, function(error) {
-                        window.alert("¡No se pudo guardar el contacto!");
-                    });
-                window.open("#personas/",'_self',false);
-            }
         }
     }
 ]);
