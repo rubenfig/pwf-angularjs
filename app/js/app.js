@@ -12,13 +12,13 @@ app.config(function ($routeProvider) {
         })
 
         .when('/agenda/:id/editar', {
-            templateUrl: 'views/edit.html',
+            templateUrl: 'views/modificar-persona.html',
             controller: 'listaPersonaCtrl',
             method: 'edit'
         })
 
         .when('/agenda/:id/ver', {
-            templateUrl: 'views/view.html',
+            templateUrl: 'views/detalle-persona.html',
             controller: 'listaPersonaCtrl',
             method: 'view'
         })
@@ -46,6 +46,14 @@ app.factory('datosCompartidos', ['$http', function($http) {
 
     datosCompartidos.getContact = function(id) {
         return $http.get(urlBase + "/" + id);
+    };
+
+    datosCompartidos.removeContact = function (id) {
+        return $http.delete(urlBase+ "/" + id);
+    };
+
+    datosCompartidos.editContact = function (item) {
+        return $http.put(urlBase + "/" + item.id, item);
     };
 
     return datosCompartidos;

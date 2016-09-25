@@ -18,5 +18,13 @@ app.service('personaService', ['$http', function ($http) {
         return $http.get(urlBase+ "/"+ id);
     };
 
+    this.removeContact = function (id) {
+        return $http.delete(urlBase+ "/" + id);
+    };
+
+    this.editContact = function (item) {
+        return $http.put(urlBase + "/" + item.id, item);
+    };
+
 }]);
 

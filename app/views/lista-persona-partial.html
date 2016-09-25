@@ -22,23 +22,22 @@
                     <th>Dirección</th>
                     <th>Teléfono</th>
                     <th>E-mail</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in data.lista |orderBy:id|filter:buscar">
-                    <td>{{item.id }}
-                    </td>
-                    <td>{{item.nombre}}
-                    </td>
-                    <td>{{item.apellido}}
-                    </td>
-                    <td>@{{item.alias }}
-                    </td>
-                    <td>{{item.direccion }}
-                    </td>
-                    <td>{{item.telefono }}
-                    </td>
-                    <td>{{item.email }}
+                    <td>{{item.id }}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>@{{item.alias }}</td>
+                    <td>{{item.direccion }}</td>
+                    <td>{{item.telefono }}</td>
+                    <td>{{item.email }}</td>
+                    <td>
+                        <button type="button" class="btn btn-default" ng-click="getContact(item)">Ver</button>
+                        <button type="button" class="btn btn-warning" ng-click="edit(item)">Editar</button>
+                        <button type="button" class="btn btn-danger" ng-click="removeContact(item)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

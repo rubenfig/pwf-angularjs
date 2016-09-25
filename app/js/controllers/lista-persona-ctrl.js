@@ -29,7 +29,7 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
             datosCompartidos.getContacts().then(function (response) {
                 $scope.data = response.data;
             }, function (error) {
-                window.alert("No se pudieron obtener los contactos --> "+error);
+                window.alert("No se pudieron obtener los contactos --> "+ error);
             });
         }
 
@@ -43,4 +43,35 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
                     window.alert("Imposible obtener el contacto.");
                 });
         };
+
+        $scope.removeContact = function (contact) {
+            var result = window.confirm("¿Está seguro que desea borrar el contacto?");
+            if(result == true){
+                datosCompartidos.removeContact(contact.id).then(function (response) {
+                    getContacts();
+                    window.alert("¡Contacto elimindo!");
+                    window.open("#personas/",'_self',false);
+                }, function (error) {
+                    window.alert("Imposible eliminar el contacto -->"+error);
+                });
+            } else {return false;}
+        };
+
+        $scope.edit = function(item){
+            $scope.persona = angular.copy(item);
+            $rootScope.persona = $scope.persona;
+            window.open("#agenda/"+item.id+"/editar", '_self',false);
+        };
+
+        $scope.editContact = function (contact) {
+            datosCompartidos.editContact(contact)
+                .then(function (response) {
+                    getContacts();
+                    window.alert("¡Contacto modificado!");
+                    window.open("#personas/",'_self',false);
+                }, function (error) {
+                    window.alert("Imposible modificar el contacto. --> "+ error);
+                });
+        };
+
 }]);
