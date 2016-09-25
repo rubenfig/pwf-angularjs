@@ -50,7 +50,7 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
                 datosCompartidos.removeContact(contact.id).then(function (response) {
                     getContacts();
                     window.alert("¡Contacto elimindo!");
-                    window.open("#personas/",'_self',false);
+                    window.open("#/",'_self',false);
                 }, function (error) {
                     window.alert("Imposible eliminar el contacto -->"+error);
                 });
@@ -59,19 +59,10 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
 
         $scope.edit = function(item){
             $scope.persona = angular.copy(item);
-            $rootScope.persona = $scope.persona;
-            window.open("#agenda/"+item.id+"/editar", '_self',false);
+            $rootScope.persona=$scope.persona;
+            window.open("#agenda/"+item.id+"/editar/", '_self',false);
         };
 
-        $scope.editContact = function (contact) {
-            datosCompartidos.editContact(contact)
-                .then(function (response) {
-                    getContacts();
-                    window.alert("¡Contacto modificado!");
-                    window.open("#personas/",'_self',false);
-                }, function (error) {
-                    window.alert("Imposible modificar el contacto. --> "+ error);
-                });
-        };
+
 
 }]);

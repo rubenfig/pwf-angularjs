@@ -6,14 +6,14 @@ var app = angular.module('pwfApp', ['ngRoute']);
 // configure our routes
 app.config(function ($routeProvider) {
     $routeProvider
-        .when('/personas', {
+        .when('/', {
             templateUrl: 'views/lista-persona-partial.html',
             controller: 'listaPersonaCtrl'
         })
 
         .when('/agenda/:id/editar', {
             templateUrl: 'views/modificar-persona.html',
-            controller: 'listaPersonaCtrl',
+            controller: 'formularioEditPersonaCtrl',
             method: 'edit'
         })
 
@@ -23,7 +23,7 @@ app.config(function ($routeProvider) {
             method: 'view'
         })
 
-        .when('/', {
+        .when('/agregar', {
             templateUrl: 'views/formulario-persona-partial.html',
             controller: 'formularioPersonaCtrl'
         });
