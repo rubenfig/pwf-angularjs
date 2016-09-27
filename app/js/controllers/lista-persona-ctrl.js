@@ -13,6 +13,10 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
         $scope.data.lista = [];
         $scope.persona = $rootScope.persona;
         $scope.buscar = "";
+        $scope.filtro="";
+        $scope.currentPage = 1;
+        $scope.numPerPage = 10;
+        $scope.maxSize=5;
 
         /**
          * Constructor / Entrypoint
@@ -26,12 +30,25 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
         })();
 
         function getContacts() {
-            datosCompartidos.getContacts().then(function (response) {
-                $scope.data = response.data;
+            datosCompartidos.getContacts($scope.currentPage, $scope.numPerPage, $scope.filtro).then(function(response) {
+                $scope.total = response.data.total;
+                angular.copy(response.data.lista, $scope.data.lista);
             }, function (error) {
                 window.alert("No se pudieron obtener los contactos --> "+ error);
             });
+
         }
+        $scope.busqueda = function (){
+            getContacts();
+        };
+        $scope.pageChanged = function() {
+            datosCompartidos.getContacts($scope.currentPage, $scope.numPerPage, $scope.filtro).then(function(response) {
+                $scope.total = response.data.total;
+                angular.copy(response.data.lista, $scope.data.lista);
+
+
+            });
+        };
 
         $scope.getContact = function (contact) {
             datosCompartidos.getContact(contact.id)

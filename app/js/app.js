@@ -1,7 +1,7 @@
 /**
  * Enrutador de la aplicación
  */
-var app = angular.module('pwfApp', ['ngRoute']);
+var app = angular.module('pwfApp', ['ngRoute', 'ui.bootstrap']);
 
 // configure our routes
 app.config(function ($routeProvider) {
@@ -46,6 +46,10 @@ app.factory('datosCompartidos', ['$http', function($http) {
 
     datosCompartidos.getContact = function(id) {
         return $http.get(urlBase + "/" + id);
+    };
+    datosCompartidos.getContacts = function(pagina, cantidad, filtro) {
+        var posicion = (pagina-1)*10;
+        return $http.get(urlBase + "?inicio="+posicion+"&cantidad="+cantidad+"&filtro="+filtro);
     };
 
     datosCompartidos.removeContact = function (id) {

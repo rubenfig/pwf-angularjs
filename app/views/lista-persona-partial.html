@@ -2,6 +2,8 @@
 <div class="panel panel-default">
     <div class="panel-heading">Listado de personas</div>
     <div class="panel-body">
+        <input class="form-control w8 input" size="5" placeholder="Busqueda por servidor" ng-model="filtro"/>
+        <button type="button" class="btn btn-default" ng-click="busqueda()">Buscar</button>
         <table class="table table-striped" >
             <thead>
                 <tr>
@@ -40,8 +42,13 @@
                         <button type="button" class="btn btn-danger" ng-click="removeContact(item)">Eliminar</button>
                     </td>
                 </tr>
+
             </tbody>
-        </table>
+            </table>
+        <pagination total-items="total" ng-model="currentPage" ng-change="pageChanged()"
+                    max-size="5" boundary-links="true"
+                    items-per-page="numPerPage" class="pagination-sm">
+        </pagination>
     </div>
 </div>
 <!-- Fin templates/lista-persona-partial -->
