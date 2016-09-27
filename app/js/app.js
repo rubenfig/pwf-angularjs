@@ -7,24 +7,24 @@ var app = angular.module('pwfApp', ['ngRoute', 'ui.bootstrap']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'views/lista-persona-partial.html',
+            templateUrl: '/app/views/lista-persona-partial.html',
             controller: 'listaPersonaCtrl'
         })
 
         .when('/agenda/:id/editar', {
-            templateUrl: 'views/modificar-persona.html',
+            templateUrl: '/app/views/modificar-persona.html',
             controller: 'formularioEditPersonaCtrl',
             method: 'edit'
         })
 
         .when('/agenda/:id/ver', {
-            templateUrl: 'views/detalle-persona.html',
+            templateUrl: '/app/views/detalle-persona.html',
             controller: 'listaPersonaCtrl',
             method: 'view'
         })
 
         .when('/agregar', {
-            templateUrl: 'views/formulario-persona-partial.html',
+            templateUrl: '/app/views/formulario-persona-partial.html',
             controller: 'formularioPersonaCtrl'
         });
 });
