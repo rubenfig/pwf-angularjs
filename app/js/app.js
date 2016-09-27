@@ -34,7 +34,7 @@ app.config(function ($routeProvider) {
  * elementos a la lista de personas.
  */
 app.factory('datosCompartidos', ['$http', function($http) {
-    var urlBase = 'http://localhost:1337/163.172.218.124/pwf/rest/agenda';
+    var urlBase = 'https://163.172.218.124/pwf/rest/agenda';
     var datosCompartidos = {};
     datosCompartidos.getContacts = function () {
         return $http.get(urlBase);
