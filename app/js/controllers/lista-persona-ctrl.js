@@ -79,6 +79,9 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
             $rootScope.persona=$scope.persona;
             window.open("#agenda/"+item.id+"/editar/", '_self',false);
         };
+        $scope.cerrar = function () {
+            window.open("#/",'_self',false);
+        };
 
 
 
