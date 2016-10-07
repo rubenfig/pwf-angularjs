@@ -16,7 +16,9 @@ app.controller('formularioPersonaCtrl', ['$scope', 'personaService', 'datosCompa
          * Se encarga de agregar datos a la lista
          * @function
          */
-
+        $scope.cancelar = function (){
+            window.open("#/",'_self',false);
+        };
         $scope.guardar = function () {
             var contact = angular.copy($scope.persona);
             datosCompartidos.newContact(contact)
@@ -34,6 +36,11 @@ app.controller('formularioPersonaCtrl', ['$scope', 'personaService', 'datosCompa
 app.controller('formularioEditPersonaCtrl', ['$scope', 'personaService', 'datosCompartidos','$rootScope',
     function($scope, personaService, datosCompartidos, $rootScope){
         $scope.persona=$rootScope.persona;
+
+        $scope.cancelar = function() {
+            $rootScope.persona = {};
+            window.open("#/", '_self', false);
+        };
         $scope.editContact = function (contact) {
             contact.fechamodificacion= new Date();
             datosCompartidos.editContact(contact)

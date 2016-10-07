@@ -1,32 +1,52 @@
-<div class="panel panel-default" ng-controller="listaPersonaCtrl">
+<div class="panel panel-default col-md-7" >
     <div class="panel-body">
-        <form name="form" id="form">
+        <h1>Editar contacto</h1>
+        <form name="form" id="form" novalidate>
+            <div class="form-group">
+                <label for="nombre">Número de contacto</label>
+                <input name="id" id="id" class="form-control" ng-model="persona.id" type="text" readonly>
+            </div>
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input name="nombre" id="nombre" class="form-control" ng-model="persona.nombre" type="text" maxlength="25" required placeholder="Nombre de la nueva persona.">
+                <p ng-show="form.nombre.$invalid && !form.nombre.$pristine" class="help-block">Este campo es requerido.</p>
             </div>
             <div class="form-group">
                 <label for="nombre">Apellido</label>
                 <input name="apellido" id="apellido" class="form-control" ng-model="persona.apellido" type="text" required maxlength="30" placeholder="Apellido de la nueva persona.">
+                <p ng-show="form.apellido.$invalid && !form.apellido.$pristine" class="help-block">Este campo es requerido.</p>
+
             </div>
             <div class="form-group">
                 <label for="nombre">Alias</label>
-                <input class="form-control" name="alias" type="text" id="alias" ng-model="persona.alias" placeholder="Alias de la nueva persona" required>
+                <input class="form-control" name="alias" type="text" id="alias" ng-model="persona.alias" placeholder="Alias de la nueva persona">
             </div>
             <div class="form-group">
                 <label for="nombre">Dirección</label>
-                <input name="direccion" id="direccion" type="text" class="form-control" ng-model="persona.direccion" placeholder="Dirección de la nueva persona." required>
+                <input name="direccion" id="direccion" type="text" class="form-control" ng-model="persona.direccion" placeholder="Dirección de la nueva persona.">
             </div>
             <div class="form-group">
                 <label for="nombre">Teléfono</label>
                 <input name="telefono" id="telefono" type="number" class="form-control" ng-model="persona.telefono" placeholder="Teléfono de la nueva persona." required>
+                <p ng-show="form.telefono.$invalid && !form.telefono.$pristine" class="help-block">Este campo es requerido.</p>
+
             </div>
             <div class="form-group">
                 <label for="nombre">E-mail</label>
                 <input name="email" id="email" type="email" class="form-control" ng-model="persona.email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="E-mail de la nueva persona." required>
+                <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Ingrese un email valido.</p>
+
+            </div>
+            <div class="form-group">
+                <label for="nombre">Fecha de creación: </label>
+                {{persona.fechacreacion | date:'dd-MM-yyyy HH:mm'}}
             </div>
             <div class="panel-footer">
-                <button type="submit" class="btn btn-primary" ng-click="editContact(persona)" >
+                <button type="submit" class="btn btn-danger" ng-click="cancelar()" >
+                    <i class="glyphicon glyphicon-remove"></i> &nbsp;Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid"
+                        confirmed-click="editContact(persona)" ng-confirm-click="Estás seguro de editar el contacto?">
                     <i class="glyphicon glyphicon-floppy-disk"></i> &nbsp;Actualizar
                 </button>
             </div>

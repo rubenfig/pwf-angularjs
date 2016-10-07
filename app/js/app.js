@@ -14,13 +14,11 @@ app.config(function ($routeProvider) {
         .when('/agenda/:id/editar', {
             templateUrl: 'views/modificar-persona.html',
             controller: 'formularioEditPersonaCtrl',
-            method: 'edit'
         })
 
         .when('/agenda/:id/ver', {
             templateUrl: 'views/detalle-persona.html',
             controller: 'listaPersonaCtrl',
-            method: 'view'
         })
 
         .when('/agregar', {
@@ -34,13 +32,17 @@ app.config(function ($routeProvider) {
  * elementos a la lista de personas.
  */
 app.factory('datosCompartidos', ['$http', function($http) {
-    var urlBase = 'http://localhost:1337/163.172.218.124/pwf/rest/agenda';
+    var urlBase = 'https://desa03.konecta.com.py/pwf/rest/agenda';
     var datosCompartidos = {};
     datosCompartidos.getContacts = function () {
         return $http.get(urlBase);
     };
 
     datosCompartidos.newContact = function (item) {
+        if(!item.alias)
+            item.alias="";
+        if(!item.direccion)
+            item.direccion="";
         return $http.post(urlBase, item);
     };
 
@@ -62,3 +64,46 @@ app.factory('datosCompartidos', ['$http', function($http) {
 
     return datosCompartidos;
 }]);
+
+app.directive('ngConfirmClick', [
+    function(){
+        return {
+            link: function (scope, element, attr) {
+                var msg = attr.ngConfirmClick || "Estas seguro?";
+                var clickAction = attr.confirmedClick;
+                element.bind('click',function (event) {
+                    if ( window.confirm(msg) ) {
+                        scope.$eval(clickAction)
+                    }
+                });
+            }
+        };
+    }]);
+app.directive('loading',   ['$http' ,function ($http)
+{
+    return {
+        link: function (scope, elm, attrs)
+        {
+            scope.isLoading = function () {
+                return $http.pendingRequests.length > 0;
+            };
+
+            scope.$watch(scope.isLoading, function (v)
+            {
+                if(v){
+                    elm.show();
+                }else{
+                    elm.hide();
+                }
+            });
+        }
+    };
+
+}]);
+
+app.run(function(paginationConfig){
+    paginationConfig.firstText='Primero';
+    paginationConfig.previousText='Anterior';
+    paginationConfig.lastText='Último';
+    paginationConfig.nextText='Siguiente';
+});

@@ -2,20 +2,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">Listado de personas</div>
     <div class="panel-body">
-        <input class="form-control w8 input" size="5" placeholder="Busqueda por servidor" ng-model="filtro"/>
+        <input class="form-control w8 input" placeholder="Buscar" ng-model="filtro"/>
         <button type="button" class="btn btn-default" ng-click="busqueda()">Buscar</button>
         <table class="table table-striped" >
             <thead>
-                <tr>
-                    <td><input class="form-control w8 input-sm" size="5" placeholder="Id" ng-model="buscar.id"/></td>
-                    <td><input class="form-control w8 input-sm" size="5" placeholder="Nombre" ng-model="buscar.nombre"/></td>
-                    <td><input class="form-control w8 input-sm" size="5" placeholder="Apellido" ng-model="buscar.apellido"/></td>
-                    <td><input class="form-control w8 input-sm" size="5" placeholder="Alias" ng-model="buscar.alias"/></td>
-                    <td><input class="form-control w8 input-sm" size="5" placeholder="Dirección" ng-model="buscar.direccion"/></td>
-                    <td><input class="form-control w8 input-sm" size="5" placeholder="Teléfono" ng-model="buscar.telefono"/></td>
-                    <td><input class="form-control w8 input-sm" size="5" placeholder="E-mail" ng-model="buscar.email"/></td>
-                </tr>
-
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
@@ -39,7 +29,7 @@
                     <td>
                         <button type="button" class="btn btn-default" ng-click="getContact(item)">Ver</button>
                         <button type="button" class="btn btn-warning" ng-click="edit(item)">Editar</button>
-                        <button type="button" class="btn btn-danger" ng-click="removeContact(item)">Eliminar</button>
+                        <button type="button" class="btn btn-danger" confirmed-click="removeContact(item)" ng-confirm-click="Estás seguro de eliminar el contacto?" >Eliminar</button>
                     </td>
                 </tr>
 

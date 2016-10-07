@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default  col-md-7">
     <div class="container">
         <h2>Detalles de persona</h2>
         <ul class="list-group" style="width:90%">
@@ -8,8 +8,11 @@
             <li class="list-group-item" ng-model="persona.telefono"><b><em>Teléfono:</em></b> {{persona.telefono}}</li>
             <li class="list-group-item" ng-model="persona.email"><b><em>Email:</em></b> {{persona.email}}</li>
             <li class="list-group-item" ng-model="persona.direccion"><b><em>Dirección:</em></b> {{persona.direccion}}</li>
-            <li class="list-group-item" ng-model="persona.fechacreacion"><b><em>Fecha de Creación:</em></b> {{persona.fechacreacion}}</li>
-            <li class="list-group-item" ng-model="persona.fechamodificacion"><b><em>Fecha de Modificación:</em></b> {{persona.fechamodificacion}}</li>
+            <li class="list-group-item" ng-model="persona.fechacreacion"><b><em>Fecha de Creación:</em></b> {{persona.fechacreacion | date:'dd-MM-yyyy HH:mm'}}</li>
+            <li class="list-group-item" ng-model="persona.fechamodificacion"><b><em>Fecha de Modificación:</em></b> {{persona.fechamodificacion| date:'dd-MM-yyyy HH:mm'}}</li>
         </ul>
+        <button type="submit" class="btn btn-primary" ng-click="cerrar()" >
+             &nbsp;Cerrar
+        </button>
     </div>
 </div>
