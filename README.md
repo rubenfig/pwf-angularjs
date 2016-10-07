@@ -4,7 +4,7 @@ Proyecto front base con AngularJS correspondiente al la materia Programación We
 ## Github Pages
 El proyecto se encuentra disponible para una mejor visualización [aquí](https://rubenfig.github.io/pwf-angularjs/#/)
 
-# Estructura directorios
+## Estructura directorios
 
 * app : Raiz del proyecto
 
