@@ -83,6 +83,9 @@ app.controller('listaPersonaCtrl', ['$scope', '$rootScope', 'datosCompartidos',
             window.open("#/",'_self',false);
         };
 
-
+        $scope.limpiar = function (){
+            $scope.filtro="";
+            getContacts();
+        };
 
 }]);

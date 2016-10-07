@@ -4,7 +4,8 @@
  * Abarca las operaciones que pueden ser realizads sobre el recurso Persona.
  */
 app.service('personaService', ['$http', function ($http) {
-    var urlBase = 'http://localhost:1337/163.172.218.124/pwf/rest/agenda';
+    
+    var urlBase = 'https://desa03.konecta.com.py/pwf/rest/agenda';
 
     this.getContacts = function () {
         return $http.get(urlBase);

@@ -3,7 +3,11 @@
     <div class="panel-heading">Listado de personas</div>
     <div class="panel-body">
         <input class="form-control w8 input" placeholder="Buscar" ng-model="filtro"/>
-        <button type="button" class="btn btn-default" ng-click="busqueda()">Buscar</button>
+        <br>
+        <button type="button" class="btn btn-primary" ng-click="busqueda()">Buscar</button>
+        <button type="button" class="btn btn-default" ng-click="limpiar()">Limpiar</button>
+        <br>
+        <br>
         <table class="table table-striped" >
             <thead>
                 <tr>
@@ -14,6 +18,8 @@
                     <th>Dirección</th>
                     <th>Teléfono</th>
                     <th>E-mail</th>
+                    <th>Fecha de Creación</th>
+                    <th>Fecha de Modificación</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -26,6 +32,8 @@
                     <td>{{item.direccion }}</td>
                     <td>{{item.telefono }}</td>
                     <td>{{item.email }}</td>
+                    <td>{{item.fechacreacion | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                    <td>{{item.fechamodificacion | date:'dd-MM-yyyy HH:mm:ss'}}</td>
                     <td>
                         <button type="button" class="btn btn-default" ng-click="getContact(item)">Ver</button>
                         <button type="button" class="btn btn-warning" ng-click="edit(item)">Editar</button>
