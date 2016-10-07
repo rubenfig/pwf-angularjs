@@ -42,12 +42,12 @@
                 {{persona.fechacreacion | date:'dd-MM-yyyy HH:mm'}}
             </div>
             <div class="panel-footer">
-                <button type="submit" class="btn btn-danger" ng-click="cancelar()" >
-                    <i class="glyphicon glyphicon-remove"></i> &nbsp;Cancelar
-                </button>
-                <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid"
+                <button type="submit" class="btn btn-success" ng-disabled="form.$invalid"
                         confirmed-click="editContact(persona)" ng-confirm-click="Estás seguro de editar el contacto?">
                     <i class="glyphicon glyphicon-floppy-disk"></i> &nbsp;Actualizar
+                </button>
+                <button type="submit" class="btn btn-danger" ng-click="cancelar()" >
+                    <i class="glyphicon glyphicon-remove"></i> &nbsp;Cancelar
                 </button>
             </div>
         </form>
