@@ -10,3 +10,10 @@ Proyecto front base con AngularJS correspondiente al la materia Programación We
 > * data: directorio con datos estaticos utilizados para simular los GET.
 > * views: partials html.
 > * js: archivos JS del proyecto.
+
+## Herramientas y librerías utilizadas
+
+> * [Bootstrap](http://getbootstrap.com/): is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
+> * [JQuery](https://jquery.com/): is a fast, small, and feature-rich JavaScript library.
+> * [UI Bootstrap](https://angular-ui.github.io/bootstrap/): Bootstrap components written in pure AngularJS by the AngularUI Team.
+> * [AngularJS](https://angularjs.org/): a MVC based JavaScript framework.
