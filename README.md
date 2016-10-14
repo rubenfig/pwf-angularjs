@@ -19,3 +19,8 @@ El proyecto se encuentra disponible para una mejor visualización [aquí](https:
 > * [JQuery](https://jquery.com/): is a fast, small, and feature-rich JavaScript library.
 > * [UI Bootstrap](https://angular-ui.github.io/bootstrap/): Bootstrap components written in pure AngularJS by the AngularUI Team.
 > * [AngularJS](https://angularjs.org/): a MVC based JavaScript framework.
+
+## Desarrolladores del Proyecto
+
+> * [Ruben Figueredo](https://github.com/rubenfig)
+> * [Carlos Segovia](https://github.com/carlossegovia)
